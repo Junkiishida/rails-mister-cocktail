@@ -4,26 +4,34 @@
 <div class="container">
 
   <div class="row">
-    <% @cocktails.each do |cocktail| %>
-      <div class="col-xs-12 col-sm-6 col-md-3">
-        <%= link_to  cocktail_path(cocktail) do  %>
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/500x400/?cocktail');">
-          <div class="card-description">
-            <h2><%= cocktail.name %></h2>
-            <%= cl_image_tag(cocktail.photo,
-     width: 400, height: 300, crop: :fill) %>
+
+    <div class="banner">
+  <div class="banner-content">
+    <h1>Forget your life: <strong>go for gross trip!!</strong></h1>
+    <p>Allen Johnson would help you for your stupid drinking life!!</p>
+
+      <% @cocktails.each do |cocktail| %>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <%= link_to  cocktail_path(cocktail) do  %>
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/500x400/?cocktail');">
+            <div class="card-description">
+              <h2><%= cocktail.name %></h2>
+              <%= cl_image_tag(cocktail.photo,
+       width: 400, height: 300, crop: :fill) %>
+            </div>
+            <%= link_to "", cocktail_path(cocktail), class: 'card-link' %>
           </div>
-          <%= link_to "", cocktail_path(cocktail), class: 'card-link' %>
         </div>
-      </div>
-    <% end %>
-    <% end %>
+      <% end %>
+      <% end %>
+    </div>
+    </div>
   </div>
   </div>
 </div>
 
 <h1>Add Cocktail</h1>
-<p>Make a special one to flap folk's tougue</p>
+<p>Make a special one to slap folk's tougue</p>
 
 <%= simple_form_for @cocktail do |f| %>
 <%= f.input :name %>
