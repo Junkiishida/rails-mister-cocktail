@@ -10,6 +10,8 @@
         <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/500x400/?cocktail');">
           <div class="card-description">
             <h2><%= cocktail.name %></h2>
+            <%= cl_image_tag(cocktail.photo,
+     width: 400, height: 300, crop: :fill) %>
           </div>
           <%= link_to "", cocktail_path(cocktail), class: 'card-link' %>
         </div>
@@ -25,5 +27,18 @@
 
 <%= simple_form_for @cocktail do |f| %>
 <%= f.input :name %>
+<%= f.input :photo %>
+<%= f.input :photo_cache, as: :hidden %>
 <%= f.button :submit, 'Cocktail', class: 'btn btn-primary' %>
 <% end %>
+
+<!-- <div class=“card-product”>
+ <div class=“card-product-infos”>
+ <#% @cocktails.each do |cocktail| %>
+ <#%= cocktail.name %>
+ <#%= cl_image_tag(cocktail.photo,
+     width: 400, height: 300, crop: :fill) %>
+ <#% end %>
+</div>
+</div>
+ -->
